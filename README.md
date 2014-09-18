@@ -43,3 +43,8 @@ function sendToStatsd(key, value, type){
 }
 
 ```
+
+## Important lessons learned about Graphite
+
+### Don't go crazy with stats saving
+Whisper, the data storage layer of Graphite is pretty aggressive with how it saves new metrics. So, you can quickly run out of space if you do something crazy like create a new stat for every URL.
