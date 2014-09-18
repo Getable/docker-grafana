@@ -24,4 +24,22 @@ bash start
 ```
 
 ## Usage
-modify `./start` to map to the ports and host directories you need.
+Visit: `http://<your ip>`
+
+### Send data
+
+```js
+var metricClient = require('dgram').createSocket('udp4')
+
+function sendToStatsd(key, value, type){
+  // key is a dot separated string
+  // value is a number
+  // type is one of ms, c, or g
+  // https://github.com/etsy/statsd/blob/master/docs/metric_types.md
+  var message = new Buffer(process.env.NODE_ENV + '.' + key + ':' + value + '|' + type)
+  metricClient.send(message, 0, message.length, 8125, '<your ip>', function (err, bytes){
+    if (err) console.error(err || bytes)
+  })
+}
+
+```
