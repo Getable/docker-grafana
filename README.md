@@ -48,3 +48,6 @@ function sendToStatsd(key, value, type){
 
 ### Don't go crazy with stats saving
 Whisper, the data storage layer of Graphite is pretty aggressive with how it saves new metrics. So, you can quickly run out of space if you do something crazy like create a new stat for every URL.
+
+### What to do about space
+Graphite (and carbon) does not have an auto-delete function. Eventually, the HDD will fill up. For very light use, (~6 different stats) I saw about 2MB per 12 hours of increase. We'll probably need a cron-job eventually: https://stackoverflow.com/questions/19894575/how-to-delete-older-carbon-data-automatically
