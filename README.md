@@ -18,7 +18,7 @@ On an Ubuntu server:
 ```bash
 cd /srv
 git clone https://github.com/Getable/docker-grafana
-cd grafana-docker-dev-env
+cd /srv/grafana-docker-dev-env
 bash build
 bash start
 ```
