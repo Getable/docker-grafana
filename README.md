@@ -39,6 +39,7 @@ function sendToStatsd(key, value, type){
   var message = new Buffer(process.env.NODE_ENV + '.' + key + ':' + value + '|' + type)
   metricClient.send(message, 0, message.length, 8125, '<your ip>', function (err, bytes){
     if (err) console.error(err || bytes)
+    metricClient.close()
   })
 }
 
