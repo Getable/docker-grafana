@@ -52,3 +52,6 @@ Whisper, the data storage layer of Graphite is pretty aggressive with how it sav
 
 ### What to do about space
 Graphite (and carbon) does not have an auto-delete function. Eventually, the HDD will fill up. For very light use, (~6 different stats) I saw about 2MB per 12 hours of increase. We'll probably need a cron-job eventually: https://stackoverflow.com/questions/19894575/how-to-delete-older-carbon-data-automatically
+
+## Developing
+All pushes to master auto-build the [docker image on the offical docker registry](https://registry.hub.docker.com/u/getable/grafana/).
